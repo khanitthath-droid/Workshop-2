@@ -19,21 +19,21 @@
 
 /* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
 :root { 
-  --background-color: #ffffff; /* Background color for the entire website, including individual sections */
-  --default-color: #272829; /* Default color used for the majority of the text content across the entire website */
-  --heading-color: #050d18; /* Color for headings, subheadings and title throughout the website */
-  --accent-color: #149ddd; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
+  --background-color: #edf3f8; /* Background color for the entire website, including individual sections */
+  --default-color: #233b4d; /* Default color used for the majority of the text content across the entire website */
+  --heading-color: #112b40; /* Color for headings, subheadings and title throughout the website */
+  --accent-color: #1d4567; /* Formal navy blue accent for a professional brand look */
   --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
   --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
 }
 
 /* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
 :root {
-  --nav-color: #a8a9b4;  /* The default color of the main navmenu links */
+  --nav-color: #c9d7e3;  /* The default color of the main navmenu links */
   --nav-hover-color: #ffffff; /* Applied to main navmenu links when they are hovered over or active */
-  --nav-mobile-background-color: #040b14; /* Used as the background color for mobile navigation menu */
-  --nav-dropdown-background-color: #040b14; /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
-  --nav-dropdown-color: #a8a9b4; /* Used for navigation links of the dropdown items in the navigation menu. */
+  --nav-mobile-background-color: #0a1d2e; /* Used as the background color for mobile navigation menu */
+  --nav-dropdown-background-color: #0a1d2e; /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
+  --nav-dropdown-color: #c9d7e3; /* Used for navigation links of the dropdown items in the navigation menu. */
   --nav-dropdown-hover-color: #ffffff; /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
 }
 
@@ -45,10 +45,10 @@
 }
 
 .dark-background {
-  --background-color: #040b14;
-  --default-color: #ffffff;
-  --heading-color: #ffffff;
-  --surface-color: #151f2b;
+  --background-color: #091c2d;
+  --default-color: #edf3f8;
+  --heading-color: #f4f9ff;
+  --surface-color: #122b3e;
   --contrast-color: #ffffff;
 }
 
@@ -161,7 +161,11 @@ h6 {
   margin: 15px auto;
   display: block;
   width: 120px;
-  border: 8px solid color-mix(in srgb, var(--default-color), transparent 85%);
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid rgba(255, 255, 255, 0.7);
+  box-shadow: 0 10px 25px rgba(18, 38, 58, 0.22);
 }
 
 .header .logo {
@@ -522,21 +526,25 @@ section,
   margin-bottom: 20px;
   padding-bottom: 20px;
   position: relative;
+  letter-spacing: 0.04em;
 }
 
 .section-title h2:after {
   content: "";
   position: absolute;
   display: block;
-  width: 50px;
+  width: 70px;
   height: 3px;
-  background: var(--accent-color);
+  background: linear-gradient(90deg, var(--accent-color), rgba(29, 92, 122, 0.35));
   left: 0;
   bottom: 0;
+  border-radius: 999px;
 }
 
 .section-title p {
   margin-bottom: 0;
+  line-height: 1.8;
+  color: color-mix(in srgb, var(--default-color), transparent 8%);
 }
 
 /*--------------------------------------------------------------
@@ -560,11 +568,12 @@ section,
   height: 100%;
   object-fit: cover;
   z-index: 1;
+  filter: saturate(0.85) contrast(1.05);
 }
 
 .hero:before {
   content: "";
-  background: color-mix(in srgb, var(--background-color), transparent 70%);
+  background: linear-gradient(90deg, rgba(7, 20, 31, 0.85), rgba(7, 20, 31, 0.42));
   position: absolute;
   inset: 0;
   z-index: 2;
@@ -573,22 +582,28 @@ section,
 .hero .container {
   position: relative;
   z-index: 3;
+  max-width: 780px;
 }
 
 .hero h2 {
   margin: 0;
   font-size: 64px;
   font-weight: 700;
+  letter-spacing: 0.04em;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .hero p {
-  margin: 5px 0 0 0;
+  margin: 10px 0 0 0;
   font-size: 26px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .hero p span {
   letter-spacing: 1px;
   border-bottom: 2px solid var(--accent-color);
+  color: #ffffff;
 }
 
 .hero .social-links {
@@ -624,6 +639,7 @@ section,
 .about .content h2 {
   font-weight: 700;
   font-size: 24px;
+  margin-bottom: 18px;
 }
 
 .about .content ul {
@@ -635,6 +651,8 @@ section,
   margin-bottom: 20px;
   display: flex;
   align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(18, 38, 58, 0.08);
 }
 
 .about .content ul strong {
@@ -646,6 +664,15 @@ section,
   margin-right: 5px;
   color: var(--accent-color);
   line-height: 0;
+}
+
+.about .content .fst-italic {
+  font-size: 1.05rem;
+  color: color-mix(in srgb, var(--default-color), transparent 10%);
+}
+
+.about .content .py-3 {
+  line-height: 1.8;
 }
 
 /*--------------------------------------------------------------
@@ -730,18 +757,22 @@ section,
 }
 
 .resume .resume-item {
-  padding: 0 0 20px 20px;
-  margin-top: -2px;
-  border-left: 2px solid var(--accent-color);
+  padding: 22px 22px 18px 22px;
+  margin-top: 0;
+  margin-bottom: 20px;
+  border-left: 3px solid var(--accent-color);
   position: relative;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 16px;
+  box-shadow: 0 12px 28px rgba(18, 38, 58, 0.06);
 }
 
 .resume .resume-item h4 {
-  line-height: 18px;
+  line-height: 1.5;
   font-size: 18px;
   font-weight: 600;
   text-transform: uppercase;
-  color: color-mix(in srgb, var(--default-color), transparent 20%);
+  color: var(--heading-color);
   margin-bottom: 10px;
 }
 
@@ -751,6 +782,9 @@ section,
   display: inline-block;
   font-weight: 600;
   margin-bottom: 10px;
+  background: rgba(29, 92, 122, 0.08);
+  border-radius: 999px;
+  color: var(--accent-color);
 }
 
 .resume .resume-item ul {
@@ -759,10 +793,11 @@ section,
 
 .resume .resume-item ul li {
   padding-bottom: 10px;
+  line-height: 1.7;
 }
 
 .resume .resume-item:last-child {
-  padding-bottom: 0;
+  padding-bottom: 18px;
 }
 
 .resume .resume-item::before {
@@ -772,9 +807,48 @@ section,
   height: 16px;
   border-radius: 50px;
   left: -9px;
-  top: 0;
+  top: 20px;
   background: var(--background-color);
   border: 2px solid var(--accent-color);
+}
+
+.info-wrap {
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(18, 38, 58, 0.08);
+  border-radius: 20px;
+  padding: 25px;
+  box-shadow: 0 16px 35px rgba(18, 38, 58, 0.06);
+}
+
+.info-item {
+  padding: 18px 0;
+  border-bottom: 1px solid rgba(18, 38, 58, 0.08);
+}
+
+.info-item:last-child {
+  border-bottom: 0;
+}
+
+.php-email-form .form-control {
+  border: 1px solid rgba(18, 38, 58, 0.12);
+  border-radius: 12px;
+  padding: 12px 14px;
+  background: rgba(255, 255, 255, 0.85);
+}
+
+.php-email-form .form-control:focus {
+  border-color: rgba(29, 92, 122, 0.65);
+  box-shadow: 0 0 0 0.2rem rgba(29, 92, 122, 0.12);
+}
+
+.php-email-form button[type="submit"] {
+  border: 0;
+  border-radius: 999px;
+  padding: 12px 28px;
+  background: linear-gradient(135deg, var(--accent-color), color-mix(in srgb, var(--accent-color), #ffffff 15%));
+  color: #fff;
+  font-weight: 600;
+  box-shadow: 0 10px 20px rgba(29, 92, 122, 0.22);
 }
 
 /*--------------------------------------------------------------
